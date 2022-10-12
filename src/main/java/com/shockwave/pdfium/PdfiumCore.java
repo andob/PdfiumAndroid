@@ -22,15 +22,11 @@ public class PdfiumCore {
     private static final String FD_FIELD_NAME = "descriptor";
 
     static {
-        try {
-            System.loadLibrary("c++_shared");
-            System.loadLibrary("modpng");
-            System.loadLibrary("modft2");
-            System.loadLibrary("modpdfium");
-            System.loadLibrary("jniPdfium");
-        } catch (UnsatisfiedLinkError e) {
-            Log.e(TAG, "Native libraries failed to load - " + e);
-        }
+        System.loadLibrary("c++_shared");
+        System.loadLibrary("modft2");
+        System.loadLibrary("modpng");
+        System.loadLibrary("modpdfium");
+        System.loadLibrary("pdfium-bindings");
     }
 
     private native long nativeOpenDocument(int fd, String password);
@@ -119,7 +115,7 @@ public class PdfiumCore {
     /** Context needed to get screen density */
     public PdfiumCore(Context ctx) {
         mCurrentDpi = ctx.getResources().getDisplayMetrics().densityDpi;
-        Log.d(TAG, "Starting PdfiumAndroid " + BuildConfig.VERSION_NAME);
+        Log.d(TAG, "Starting PdfiumAndroid");
     }
 
     /** Create new document from file */
