@@ -4,15 +4,17 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.3.0'
     }
 }
 
 allprojects {
     gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xmaxerrs" << "5000"
-            options.compilerArgs << "-Xlint:deprecation"
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                options.compilerArgs << "-Xmaxerrs" << "5000"
+                options.compilerArgs << "-Xlint:deprecation"
+            }
         }
     }
 }
@@ -45,12 +47,11 @@ ext {
 }
 
 android {
-    compileSdkVersion 33
+    namespace 'com.shockwave.pdfium'
+    compileSdk 34
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 33
-        versionCode 1
-        versionName "1.9.0"
+        minSdk 21
+        targetSdk 34
 
         externalNativeBuild {
             cmake {
@@ -101,7 +102,7 @@ project.afterEvaluate {
                 from components.release
                 groupId 'ro.andob.pdfium-android'
                 artifactId 'pdfium-android'
-                version '1.1.0'
+                version '1.1.1'
             }
         }
     }
