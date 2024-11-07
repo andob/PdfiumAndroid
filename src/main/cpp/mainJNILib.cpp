@@ -316,7 +316,7 @@ JNI_FUNC(jlongArray, PdfiumCore, nativeLoadPages)(JNI_ARGS, jlong docPtr, jint f
     DocumentFile *doc = reinterpret_cast<DocumentFile*>(docPtr);
 
     if(toIndex < fromIndex) return NULL;
-    jlong pages[ toIndex - fromIndex + 1 ];
+    jlong *pages = new jlong[toIndex - fromIndex + 1];
 
     int i;
     for(i = 0; i <= (toIndex - fromIndex); i++){
@@ -326,6 +326,7 @@ JNI_FUNC(jlongArray, PdfiumCore, nativeLoadPages)(JNI_ARGS, jlong docPtr, jint f
     jlongArray javaPages = env -> NewLongArray( (jsize)(toIndex - fromIndex + 1) );
     env -> SetLongArrayRegion(javaPages, 0, (jsize)(toIndex - fromIndex + 1), (const jlong*)pages);
 
+    delete[] pages;
     return javaPages;
 }
 

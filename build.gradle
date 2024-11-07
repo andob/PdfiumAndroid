@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.0'
+        classpath 'com.android.tools.build:gradle:8.7.2'
     }
 }
 
@@ -48,10 +48,10 @@ ext {
 
 android {
     namespace 'com.shockwave.pdfium'
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         minSdk 21
-        targetSdk 34
+        targetSdk 35
 
         externalNativeBuild {
             cmake {
@@ -63,7 +63,6 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     publishing {
@@ -102,7 +101,7 @@ project.afterEvaluate {
                 from components.release
                 groupId 'ro.andob.pdfium-android'
                 artifactId 'pdfium-android'
-                version '1.1.1'
+                version '1.1.2'
             }
         }
     }
