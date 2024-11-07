@@ -24,7 +24,7 @@ dependencies {
 4. From the extracted x86 archive, copy ``libpdfium.so`` binary into ``src/main/cpp/lib/x86``.
 5. From the extracted x64 archive, copy ``libpdfium.so`` binary into ``src/main/cpp/lib/x86_64``.
 3. Delete everything from ``src/main/include`` except ``utils`` directory.
-4. Copy everything from the arm64 archive, ``include`` directory into ``src/main/cpp/lib``
+4. Copy everything from the arm64 archive, ``include`` directory into ``src/main/include``
 5. Build and fix build errors.
 
 ### Licensed under Apache License
