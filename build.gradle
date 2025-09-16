@@ -53,6 +53,7 @@ android {
         minSdk = 21
         targetSdk = 35
 
+        ndkVersion '29.0.14033849'
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++17 -fexceptions -frtti"
@@ -101,7 +102,7 @@ project.afterEvaluate {
                 from components.release
                 groupId 'ro.andob.pdfium-android'
                 artifactId 'pdfium-android'
-                version '1.1.3'
+                version '1.1.4'
             }
         }
     }
