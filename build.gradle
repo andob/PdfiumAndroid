@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.android.tools.build:gradle:8.13.1'
     }
 }
 
@@ -48,10 +48,10 @@ ext {
 
 android {
     namespace 'com.shockwave.pdfium'
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
 
         ndkVersion '29.0.14033849'
         externalNativeBuild {
@@ -102,7 +102,7 @@ project.afterEvaluate {
                 from components.release
                 groupId 'ro.andob.pdfium-android'
                 artifactId 'pdfium-android'
-                version '1.1.4'
+                version '1.1.5'
             }
         }
     }
